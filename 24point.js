@@ -13,11 +13,14 @@ function calc(arr) {
 		for (var i in arr) {
 			arr[i] = arr[i].toString();
 		}
+		arr["result"] = [];
+		console.warn("The result of four number:", arr[0], arr[1], arr[2], arr[3]);
 	}
 
 	if (arr.length == 1) {
 		if (eval(arr[0]) == 24) {
-			console.log(arr[0]);
+			if (arr.result.indexOf(arr[0]) == -1)
+				arr.result.push(arr[0]);
 			return true;
 		}
 		else {
@@ -53,7 +56,17 @@ function calc(arr) {
 			}
 	}
 }
-var arr5 = [2, 4, 6, 7];
-calc(arr5);
-var arr1 = [1, 2, 3, 4];
-calc(arr1);
+
+exports.main = function() {
+	if (arguments.length == 4) {
+		var args = [];
+		for (var i = 0; i < 4; i++)
+			args[i] = arguments[i];
+		calc(args);
+		for (var i in args.result) {
+			console.log(args.result[i]);
+		}
+	}
+	else
+		console.log("Please enter the right arguments");
+}
