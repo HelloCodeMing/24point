@@ -6,3 +6,7 @@ calc(5, 6, 7, 8);
 calc(2, 2, 3, 7);
 calc(1, 8, 10, 11);
 calc(2, 5, 3, 9);
+
+//has no result
+calc(1, 1, 1, 1);
+calc(2, 2, 2, 2);

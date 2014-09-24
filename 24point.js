@@ -1,3 +1,15 @@
+/*
+ * desc: a solvtion for 24point game
+ */
+
+/* param:
+ * arr: The array to be calculate
+ * operation: operator
+ * index: The first index to be changed.
+ * expA, expB: The left and right arguments.
+ * return: an object.
+ */
+
 function transfer(arr, operation, index, expA, expB) {
 	var obj = [];
 	for (var i in arr)
@@ -8,13 +20,16 @@ function transfer(arr, operation, index, expA, expB) {
 	return obj;
 }
 
+/* desc: The recurive function
+ */
+
 function calc(arr) {
 	if (arr.length == 4) {
+		// init the array
 		for (var i in arr) {
 			arr[i] = arr[i].toString();
 		}
 		arr["result"] = [];
-		console.warn("The result of four number:", arr[0], arr[1], arr[2], arr[3]);
 	}
 
 	if (arr.length == 1) {
@@ -62,9 +77,14 @@ exports.main = function() {
 		var args = [];
 		for (var i = 0; i < 4; i++)
 			args[i] = arguments[i];
+		console.log("The result of the numbers: ", arguments[0], arguments[1], arguments[2], arguments[3]);
 		calc(args);
-		for (var i in args.result) {
-			console.log(args.result[i]);
+		if (args.result.length == 0)
+			console.log("had no result.");
+		else  {
+			for (var i in args.result) {
+				console.log(args.result[i]);
+			}
 		}
 	}
 	else
